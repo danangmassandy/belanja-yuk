@@ -1,0 +1,21 @@
+{
+  "name": "belanja-yuk",
+  "version": "0.0.0",
+  "description": "Hello Expo!",
+  "author": null,
+  "private": true,
+  "main": "main.js",
+  "dependencies": {
+    "expo": "17.0.0",
+    "native-base": "^2.1.4",
+    "react": "16.0.0-alpha.6",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-17.0.0.tar.gz",
+    "react-native-router-flux": "^3.39.1",
+    "react-navigation": "^1.0.0-beta.9",
+    "react-redux": "^5.0.5",
+    "redux": "^3.6.0"
+  },
+  "devDependencies": {
+    "redux-devtools": "^3.4.0"
+  }
+}
