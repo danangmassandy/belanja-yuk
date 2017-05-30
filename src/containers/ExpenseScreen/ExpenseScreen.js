@@ -14,18 +14,19 @@ import {
   Icon,
   Right
 } from "native-base";
+import {Actions} from 'react-native-router-flux';
 export default class ExpenseScreen extends React.Component {
   render() {
     return (
       <Container>
         <Header>
           <Left>
-            <Button transparent>
+            <Button transparent onPress={()=>{Actions.refresh({key: 'drawer', open: value => !value });}}>
               <Icon name="menu" />
             </Button>
           </Left>
-          <Body>
-            <Title>Expense - Income Summary</Title>
+          <Body style={{flex:3}}>
+            <Title>Summary</Title>
           </Body>
           <Right />
         </Header>
@@ -42,6 +43,7 @@ export default class ExpenseScreen extends React.Component {
             rounded
             primary
             style={{ marginTop: 10 }}
+             onPress={()=>{Actions.addExpense();}}
             >
             <Text>Add Expense</Text>
           </Button>
@@ -50,6 +52,7 @@ export default class ExpenseScreen extends React.Component {
             rounded
             primary
             style={{ marginTop: 10 }}
+            onPress={()=>{Actions.addIncome();}}
             >
             <Text>Add Income</Text>
           </Button>
@@ -58,6 +61,7 @@ export default class ExpenseScreen extends React.Component {
             rounded
             primary
             style={{ marginTop: 10 }}
+            onPress={()=>{Actions.viewExpenseByCategory();}}
             >
             <Text>Expense by Category</Text>
           </Button>

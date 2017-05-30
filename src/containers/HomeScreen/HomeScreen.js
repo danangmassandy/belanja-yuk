@@ -1,5 +1,5 @@
 import React from "react";
-import { StatusBar } from "react-native";
+import { View, StatusBar } from "react-native";
 import {
   Button,
   Text,
@@ -12,48 +12,48 @@ import {
   Title,
   Left,
   Icon,
-  Right
+  Right,
+  Fab
 } from "native-base";
+import {Actions} from 'react-native-router-flux';
 export default class HomeScreen extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+  }
+
+  
+
   render() {
     return (
       <Container>
         <Header>
           <Left>
-            <Button transparent>
+            <Button transparent onPress={()=>{Actions.refresh({key: 'drawer', open: value => !value });}}>
               <Icon name="menu" />
             </Button>
           </Left>
-          <Body>
+          <Body style={{flex:3}}>
             <Title>My Shopping List</Title>
           </Body>
           <Right />
         </Header>
         <Content padder>
-          <Card>
-            <CardItem>
-              <Body>
-                <Text>HomeScreen - My Shopping List</Text>
-              </Body>
-            </CardItem>
-          </Card>
           <Button
             full
             rounded
             primary
             style={{ marginTop: 10 }}
-            >
-            <Text>Add Shopping List</Text>
-          </Button>
-          <Button
-            full
-            rounded
-            primary
-            style={{ marginTop: 10 }}
+            onPress={()=>{Actions.shoppingListDetail();}}
             >
             <Text>View Shopping List</Text>
           </Button>
         </Content>
+        <Fab
+            position="bottomRight"
+            direction="up"
+            onPress={() => {Actions.addShoppingList();}}>
+              <Icon name="add" />
+          </Fab>
       </Container>
     );
   }

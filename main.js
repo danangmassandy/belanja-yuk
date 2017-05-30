@@ -4,11 +4,11 @@ import { StyleSheet, Text, View } from 'react-native';
 import { addNavigationHelpers } from 'react-navigation';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import AppReducer from "./src/reducers";
+// import AppReducer from "./src/reducers";
 import HomeScreenRouter from "./src/containers/HomeScreen/index.js";
 
 class App extends React.Component {
-  store = createStore(AppReducer);
+  // store = createStore(AppReducer);
   constructor() {
     super();
     this.state = {
@@ -28,9 +28,9 @@ class App extends React.Component {
       return <Expo.AppLoading />;
     }
     return (
-      <Provider store={this.store}>
+      // <Provider store={this.store}>
         <HomeScreenRouter />
-      </Provider>
+      // </Provider>
     );
   }
 }

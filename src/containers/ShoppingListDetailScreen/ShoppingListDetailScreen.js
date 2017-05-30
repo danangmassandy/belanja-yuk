@@ -14,17 +14,18 @@ import {
   Icon,
   Right
 } from "native-base";
+import {Actions} from 'react-native-router-flux';
 export default class ShoppingListDetailScreen extends React.Component {
   render() {
     return (
       <Container>
         <Header>
           <Left>
-            <Button transparent>
+            <Button transparent onPress={()=>{Actions.pop();}}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
-          <Body>
+          <Body style={{flex:3}}>
               <Title>Shopping List Detail</Title>
           </Body>
           <Right />
@@ -42,6 +43,7 @@ export default class ShoppingListDetailScreen extends React.Component {
             rounded
             primary
             style={{ marginTop: 10 }}
+            onPress={()=>{Actions.addShoppingItem();}}
             >
             <Text>Add Shopping Item</Text>
           </Button>
@@ -50,6 +52,7 @@ export default class ShoppingListDetailScreen extends React.Component {
             rounded
             primary
             style={{ marginTop: 10 }}
+            onPress={()=>{Actions.editShoppingItem();}}
             >
             <Text>Edit Shopping Item</Text>
           </Button>

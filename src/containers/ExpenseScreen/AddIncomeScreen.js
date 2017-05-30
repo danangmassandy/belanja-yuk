@@ -14,17 +14,18 @@ import {
   Icon,
   Right
 } from "native-base";
+import {Actions} from 'react-native-router-flux';
 export default class AddIncomeScreen extends React.Component {
   render() {
     return (
       <Container>
         <Header>
         <Left>
-            <Button transparent>
-            <Icon name="arrow-back" />
+            <Button transparent onPress={()=>{Actions.pop();}}>
+              <Icon name="arrow-back" />
             </Button>
         </Left>
-        <Body>
+        <Body style={{flex:3}}>
             <Title>Add Income</Title>
         </Body>
         <Right />

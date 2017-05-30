@@ -14,6 +14,7 @@ import {
   Icon,
   Right
 } from "native-base";
+import {Actions} from 'react-native-router-flux';
 export default class CategoriesScreen extends React.Component {
   render() {
     return (
@@ -21,12 +22,12 @@ export default class CategoriesScreen extends React.Component {
         <Header>
           <Left>
             <Button
-              transparent
+              transparent onPress={()=>{Actions.refresh({key: 'drawer', open: value => !value });}}
               >
               <Icon name="menu" />
             </Button>
           </Left>
-          <Body>
+          <Body style={{flex:3}}>
             <Title>Categories</Title>
           </Body>
           <Right />
