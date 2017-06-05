@@ -16,6 +16,8 @@ import {
   Fab
 } from "native-base";
 import {Actions} from 'react-native-router-flux';
+import ShoppingList from './components/ShoppingList';
+
 export default class HomeScreen extends React.Component {
   constructor(props, context) {
     super(props, context);
@@ -38,15 +40,34 @@ export default class HomeScreen extends React.Component {
           <Right />
         </Header>
         <Content padder>
-          <Button
-            full
-            rounded
-            primary
-            style={{ marginTop: 10 }}
-            onPress={()=>{Actions.shoppingListDetail();}}
-            >
-            <Text>View Shopping List</Text>
-          </Button>
+          <View
+            style={{
+                flexDirection: 'row',
+                alignSelf: 'center',
+                justifyContent: 'space-around'}}>
+            <Button
+                transparent
+                bordered={this.props.displayType === 'all'}
+              >
+                <Text>All</Text>
+              </Button>
+
+              <Button
+                transparent
+                bordered={this.props.displayType === 'completed'}
+              >
+                <Text>Completed</Text>
+              </Button>
+
+              <Button
+                transparent
+                bordered={this.props.displayType === 'active'}
+              >
+                <Text>Active</Text>
+              </Button>
+          </View>
+
+          <ShoppingList />
         </Content>
         <Fab
             position="bottomRight"
@@ -58,3 +79,14 @@ export default class HomeScreen extends React.Component {
     );
   }
 }
+
+
+          /*<Button
+            full
+            rounded
+            primary
+            style={{ marginTop: 10 }}
+            onPress={()=>{Actions.shoppingListDetail();}}
+            >
+            <Text>View Shopping List</Text>
+          </Button>*/
