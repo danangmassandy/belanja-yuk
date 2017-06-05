@@ -16,14 +16,24 @@ import {
   Fab
 } from "native-base";
 import {Actions} from 'react-native-router-flux';
+import { connect } from 'react-redux';
 import ShoppingList from './components/ShoppingList';
 
-export default class HomeScreen extends React.Component {
-  constructor(props, context) {
-    super(props, context);
+import {setVisibilityFilter} from '../../actions/shoppingListActions';
+
+class HomeScreen extends React.Component {
+
+  static propTypes = {
+    setVisibilityFilter: React.PropTypes.func,
+    displayType: React.PropTypes.string,
   }
 
-  
+
+  constructor(props, context) {
+    super(props, context);
+
+    this.state = { displayType: 'all' };
+  }
 
   render() {
     return (
@@ -48,6 +58,7 @@ export default class HomeScreen extends React.Component {
             <Button
                 transparent
                 bordered={this.props.displayType === 'all'}
+                onPress={()=>{this.props.setVisibilityFilter('all')}}
               >
                 <Text>All</Text>
               </Button>
@@ -55,6 +66,7 @@ export default class HomeScreen extends React.Component {
               <Button
                 transparent
                 bordered={this.props.displayType === 'completed'}
+                onPress={()=>{this.props.setVisibilityFilter('completed')}}
               >
                 <Text>Completed</Text>
               </Button>
@@ -62,6 +74,7 @@ export default class HomeScreen extends React.Component {
               <Button
                 transparent
                 bordered={this.props.displayType === 'active'}
+                onPress={()=>{this.props.setVisibilityFilter('active')}}
               >
                 <Text>Active</Text>
               </Button>
@@ -78,7 +91,22 @@ export default class HomeScreen extends React.Component {
       </Container>
     );
   }
+};
+
+function mapStateToProps(state) {
+  return {
+    shoppingList: state.shoppingList,
+    displayType: state.displayType,
+  };
 }
+
+function mapDispatchToProps(dispatch) {
+  return {
+    setVisibilityFilter: displayType => dispatch(setVisibilityFilter(displayType)),
+  };
+}
+export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);
+
 
 
           /*<Button

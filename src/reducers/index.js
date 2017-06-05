@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
-// const AppReducer = combineReducers({
-  
-// });
+import displayType from './shoppingListVisibilityFilter';
 
-// export default AppReducer;
+export default combineReducers({
+  displayType
+});

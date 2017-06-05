@@ -15,7 +15,7 @@ import {
   Right
 } from "native-base";
 import {Actions} from 'react-native-router-flux';
-export default class CategoriesScreen extends React.Component {
+export default class ItemCatalogScreen extends React.Component {
   render() {
     return (
       <Container>
@@ -28,7 +28,7 @@ export default class CategoriesScreen extends React.Component {
             </Button>
           </Left>
           <Body style={{flex:3}}>
-            <Title>Expense Categories</Title>
+            <Title>Item Catalog</Title>
           </Body>
           <Right />
         </Header>
@@ -36,7 +36,7 @@ export default class CategoriesScreen extends React.Component {
           <Card>
             <CardItem>
               <Body>
-                <Text>Expense Category List - Add - Update - Delete</Text>
+                <Text>Item Catalog List - Add Update Delete</Text>
               </Body>
             </CardItem>
           </Card>

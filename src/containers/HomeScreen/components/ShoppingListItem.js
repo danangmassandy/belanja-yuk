@@ -1,5 +1,5 @@
 import React from "react";
-import {View} from "react-native";
+import {TouchableOpacity, View} from "react-native";
 import {
   Button,
   Text,
@@ -14,6 +14,10 @@ import {
   Icon,
   Right
 } from "native-base";
+
+import Menu, { MenuContext, MenuOptions, MenuOption, MenuTrigger } from 'react-native-menu';
+
+const renderTouchable = () => <TouchableOpacity/>;
 
 class ShoppingListItem extends React.Component {
 
@@ -35,7 +39,19 @@ class ShoppingListItem extends React.Component {
                             <Text>
                                 2/4
                             </Text>
-                            <Icon name="more" style={{marginLeft:10}} />
+                            <Menu onSelect={(value) => alert(`User selected the number ${value}`)}>
+                                <MenuTrigger renderTouchable={renderTouchable}>
+                                    <Icon name="more" style={{marginLeft:10}} />
+                                </MenuTrigger>
+                                <MenuOptions>
+                                    <MenuOption value={1}>
+                                    <Text>One</Text>
+                                    </MenuOption>
+                                    <MenuOption value={2}>
+                                    <Text>Two</Text>
+                                    </MenuOption>
+                                </MenuOptions>
+                            </Menu>
                         </View>
                     </Right>
                 </CardItem>

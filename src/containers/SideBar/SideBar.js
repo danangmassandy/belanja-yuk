@@ -44,6 +44,14 @@ export default class SideBar extends React.Component {
               button onPress={()=>{drawer.close();Actions.categories();}}>
               <Text>Categories</Text>
             </ListItem>
+            <ListItem
+              button onPress={()=>{drawer.close();Actions.itemCatalog();}}>
+              <Text>Item Catalog</Text>
+            </ListItem>
+            <ListItem
+              button onPress={()=>{drawer.close();Actions.setting();}}>
+              <Text>Setting</Text>
+            </ListItem>
           </List>
         </Content>
       </Container>
